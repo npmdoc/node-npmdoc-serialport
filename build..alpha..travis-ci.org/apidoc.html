@@ -1,0 +1,641 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/EmergingTechnologyAdvisors/node-serialport#readme"
+
+    >serialport (v4.0.7)</a>
+</h1>
+<h4>Node.js package to access serial ports. Welcome your robotic javascript overlords. Better yet, program them!</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.serialport">module serialport</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.serialport.list">
+            function <span class="apidocSignatureSpan">serialport.</span>list
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.serialport.super_">
+            function <span class="apidocSignatureSpan">serialport.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">serialport.</span>bindings</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">serialport.</span>parsers</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.serialport.bindings">module serialport.bindings</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.serialport.bindings.SerialportPoller">
+            function <span class="apidocSignatureSpan">serialport.bindings.</span>SerialportPoller
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.serialport.bindings.close">
+            function <span class="apidocSignatureSpan">serialport.bindings.</span>close
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.serialport.bindings.drain">
+            function <span class="apidocSignatureSpan">serialport.bindings.</span>drain
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.serialport.bindings.flush">
+            function <span class="apidocSignatureSpan">serialport.bindings.</span>flush
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.serialport.bindings.list">
+            function <span class="apidocSignatureSpan">serialport.bindings.</span>list
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.serialport.bindings.open">
+            function <span class="apidocSignatureSpan">serialport.bindings.</span>open
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.serialport.bindings.set">
+            function <span class="apidocSignatureSpan">serialport.bindings.</span>set
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.serialport.bindings.update">
+            function <span class="apidocSignatureSpan">serialport.bindings.</span>update
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.serialport.bindings.write">
+            function <span class="apidocSignatureSpan">serialport.bindings.</span>write
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">serialport.bindings.</span>platformOptions</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.serialport.parsers">module serialport.parsers</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.serialport.parsers.byteDelimiter">
+            function <span class="apidocSignatureSpan">serialport.parsers.</span>byteDelimiter
+            <span class="apidocSignatureSpan">(delimiter)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.serialport.parsers.byteLength">
+            function <span class="apidocSignatureSpan">serialport.parsers.</span>byteLength
+            <span class="apidocSignatureSpan">(length)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.serialport.parsers.raw">
+            function <span class="apidocSignatureSpan">serialport.parsers.</span>raw
+            <span class="apidocSignatureSpan">(emitter, buffer)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.serialport.parsers.readline">
+            function <span class="apidocSignatureSpan">serialport.parsers.</span>readline
+            <span class="apidocSignatureSpan">(delimiter, encoding)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.serialport" id="apidoc.module.serialport">module serialport</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.serialport.list" id="apidoc.element.serialport.list">
+        function <span class="apidocSignatureSpan">serialport.</span>list
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function listLinux(callback) {
+  callback = callback || function(err) {
+    if (err) { this.emit(&#x27;error&#x27;, err) }
+  }.bind(this);
+  return listUnix(callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+port.on(&#x27;open&#x27;, function() {
+  // open logic
+});
+```
+
+### Listing Ports
+
+`.<span class="apidocCodeKeywordSpan">list</span>(callback)`
+
+Retrieves a list of available serial ports with metadata.
+
+* `callback` is a required function that looks should look like: `function (err, ports) { ... }`. `ports` will be an array of objects
+ with port info. Only the `comName` is guaranteed, all the other fields undefined if unavailable. The `comName` is either the path
+ or identifier (eg `COM1`) used to open the serialport.
+
+```js
+// example port information
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.serialport.super_" id="apidoc.element.serialport.super_">
+        function <span class="apidocSignatureSpan">serialport.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Stream() {
+  EE.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.serialport.bindings" id="apidoc.module.serialport.bindings">module serialport.bindings</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.serialport.bindings.SerialportPoller" id="apidoc.element.serialport.bindings.SerialportPoller">
+        function <span class="apidocSignatureSpan">serialport.bindings.</span>SerialportPoller
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function SerialportPoller() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.serialport.bindings.close" id="apidoc.element.serialport.bindings.close">
+        function <span class="apidocSignatureSpan">serialport.bindings.</span>close
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function close() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.serialport.bindings.drain" id="apidoc.element.serialport.bindings.drain">
+        function <span class="apidocSignatureSpan">serialport.bindings.</span>drain
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function drain() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+**Example**
+
+Writes `data` and waits until it has finish transmitting to the target serial port before calling the callback.
+
+```
+function writeAndDrain (data, callback) {
+  sp.write(data, function () {
+    sp.<span class="apidocCodeKeywordSpan">drain</span>(callback);
+  });
+}
+```
+
+### .close (callback)
+
+Closes an open connection.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.serialport.bindings.flush" id="apidoc.element.serialport.bindings.flush">
+        function <span class="apidocSignatureSpan">serialport.bindings.</span>flush
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function flush() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.serialport.bindings.list" id="apidoc.element.serialport.bindings.list">
+        function <span class="apidocSignatureSpan">serialport.bindings.</span>list
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function listLinux(callback) {
+  callback = callback || function(err) {
+    if (err) { this.emit(&#x27;error&#x27;, err) }
+  }.bind(this);
+  return listUnix(callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+port.on(&#x27;open&#x27;, function() {
+  // open logic
+});
+```
+
+### Listing Ports
+
+`.<span class="apidocCodeKeywordSpan">list</span>(callback)`
+
+Retrieves a list of available serial ports with metadata.
+
+* `callback` is a required function that looks should look like: `function (err, ports) { ... }`. `ports` will be an array of objects
+ with port info. Only the `comName` is guaranteed, all the other fields undefined if unavailable. The `comName` is either the path
+ or identifier (eg `COM1`) used to open the serialport.
+
+```js
+// example port information
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.serialport.bindings.open" id="apidoc.element.serialport.bindings.open">
+        function <span class="apidocSignatureSpan">serialport.bindings.</span>open
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function open() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+1. Options - optional and described below.
+
+### Opening a Port
+
+Constructing a `SerialPort` object will open a port on `nextTick`. You can bind events while the port is opening but you must wait
+ until it is open to `write()` to it. (Most port functions require an open port.) You can call code when a port is opened in three
+ ways.
+
+ - The `open` event is always emitted when the port is opened
+ - The constructor&#x27;s openCallback is passed to `.<span class="apidocCodeKeywordSpan">open</span>()` when the `autoOpen` option
+ hasn&#x27;t been disabled, if you have disabled it the callback is ignored.
+ - The `.open()` function takes a callback that is called after the port is opened. This can be used if you disabled the `autoOpen
+` option or have previously closed an open port.
+
+
+```js
+var SerialPort = require(&#x27;serialport&#x27;);
+var port = new SerialPort(&#x27;/dev/tty-usbserial1&#x27;);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.serialport.bindings.set" id="apidoc.element.serialport.bindings.set">
+        function <span class="apidocSignatureSpan">serialport.bindings.</span>set
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function set() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.serialport.bindings.update" id="apidoc.element.serialport.bindings.update">
+        function <span class="apidocSignatureSpan">serialport.bindings.</span>update
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function update() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.serialport.bindings.write" id="apidoc.element.serialport.bindings.write">
+        function <span class="apidocSignatureSpan">serialport.bindings.</span>write
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function write() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+
+```js
+var SerialPort = require(&#x27;serialport&#x27;);
+var port = new SerialPort(&#x27;/dev/tty-usbserial1&#x27;);
+
+port.on(&#x27;open&#x27;, function() {
+  port.<span class="apidocCodeKeywordSpan">write</span>(&#x27;main screen turn on&#x27;, function(err) {
+    if (err) {
+      return console.log(&#x27;Error on write: &#x27;, err.message);
+    }
+    console.log(&#x27;message written&#x27;);
+  });
+});
+...</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.serialport.parsers" id="apidoc.module.serialport.parsers">module serialport.parsers</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.serialport.parsers.byteDelimiter" id="apidoc.element.serialport.parsers.byteDelimiter">
+        function <span class="apidocSignatureSpan">serialport.parsers.</span>byteDelimiter
+        <span class="apidocSignatureSpan">(delimiter)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">byteDelimiter = function (delimiter) {
+  if (Object.prototype.toString.call(delimiter) !== &#x27;[object Array]&#x27;) {
+    delimiter = [ delimiter ];
+  }
+  var buf = [];
+  var nextDelimIndex = 0;
+  return function(emitter, buffer) {
+    for (var i = 0; i &#x3c; buffer.length; i++) {
+      buf[buf.length] = buffer[i];
+      if (buf[buf.length - 1] === delimiter[nextDelimIndex]) {
+        nextDelimIndex++;
+      }
+      if (nextDelimIndex === delimiter.length) {
+        emitter.emit(&#x27;data&#x27;, buf);
+        buf = [];
+        nextDelimIndex = 0;
+      }
+    }
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Note that the raw parser does not guarantee that all data it receives will come in a single event.
+
+To use the byte sequence parser, you must provide a delimiter as an array of bytes:
+```js
+var SerialPort = require(&#x27;serialport&#x27;);
+
+var port = new SerialPort(&#x27;/dev/tty-usbserial1&#x27;, {
+  parser: SerialPort.parsers.<span class="apidocCodeKeywordSpan">byteDelimiter</span>([10,13])
+});
+```
+
+To use the byte length parser, you must provide a delimiter as a length in bytes:
+```js
+var SerialPort = require(&#x27;serialport&#x27;);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.serialport.parsers.byteLength" id="apidoc.element.serialport.parsers.byteLength">
+        function <span class="apidocSignatureSpan">serialport.parsers.</span>byteLength
+        <span class="apidocSignatureSpan">(length)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">byteLength = function (length) {
+  var data = new Buffer(0);
+  return function(emitter, buffer) {
+    data = Buffer.concat([data, buffer]);
+    while (data.length &#x3e;= length) {
+      var out = data.slice(0, length);
+      data = data.slice(length);
+      emitter.emit(&#x27;data&#x27;, out);
+    }
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+To use the byte length parser, you must provide a delimiter as a length in bytes:
+```js
+var SerialPort = require(&#x27;serialport&#x27;);
+
+var port = new SerialPort(&#x27;/dev/tty-usbserial1&#x27;, {
+  parser: SerialPort.parsers.<span class="apidocCodeKeywordSpan">byteLength</span>(5)
+});
+```
+
+You can get updates of new data from the Serial Port as follows:
+
+```js
+port.on(&#x27;data&#x27;, function (data) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.serialport.parsers.raw" id="apidoc.element.serialport.parsers.raw">
+        function <span class="apidocSignatureSpan">serialport.parsers.</span>raw
+        <span class="apidocSignatureSpan">(emitter, buffer)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">raw = function (emitter, buffer) {
+  emitter.emit(&#x27;data&#x27;, buffer);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.serialport.parsers.readline" id="apidoc.element.serialport.parsers.readline">
+        function <span class="apidocSignatureSpan">serialport.parsers.</span>readline
+        <span class="apidocSignatureSpan">(delimiter, encoding)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">readline = function (delimiter, encoding) {
+  if (typeof delimiter === &#x27;undefined&#x27; || delimiter === null) { delimiter = &#x27;\r&#x27; }
+  if (typeof encoding === &#x27;undefined&#x27; || encoding === null) { encoding = &#x27;utf8&#x27; }
+  // Delimiter buffer saved in closure
+  var data = &#x27;&#x27;;
+  return function(emitter, buffer) {
+    // Collect data
+    data += buffer.toString(encoding);
+    // Split collected data by delimiter
+    var parts = data.split(delimiter);
+    data = parts.pop();
+    parts.forEach(function(part) {
+      emitter.emit(&#x27;data&#x27;, part);
+    });
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+To use the readline parser, you must provide a delimiter as such:
+
+```js
+var SerialPort = require(&#x27;serialport&#x27;);
+
+var port = new SerialPort(&#x27;/dev/tty-usbserial1&#x27;, {
+  parser: SerialPort.parsers.<span class="apidocCodeKeywordSpan">readline</span>(&#x27;\n&#x27;)
+});
+```
+
+To use the raw parser don&#x27;t specify any parser, however if you really want to you can:
+
+```js
+var SerialPort = require(&#x27;serialport&#x27;);
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
