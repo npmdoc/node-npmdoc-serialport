@@ -1,17 +1,40 @@
 {
-    "buildNpmdoc":"serialport",
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "buildNpmdoc": "serialport",
+    "description": "api documentation for [serialport (v4.0.7)](https://github.com/EmergingTechnologyAdvisors/node-serialport#readme) [![npm package](https://img.shields.io/npm/v/npmdoc-serialport.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-serialport) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-serialport.svg)](https://travis-ci.org/npmdoc/node-npmdoc-serialport)",
     "devDependencies": {
-        "serialport": "*",
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "serialport": "*",
         "utility2": "kaizhu256/node-utility2#alpha"
     },
-    "name":"npmdoc-serialport",
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmdoc/node-npmdoc-serialport",
+    "keywords": [
+        "documentation",
+        "serialport"
+    ],
+    "license": "MIT",
+    "main": "lib.npmdoc_serialport.js",
+    "name": "npmdoc-serialport",
+    "nameAlias": "npmdoc_serialport",
+    "nameOriginal": "npmdoc-serialport",
+    "os": [
+        "darwin",
+        "linux"
+    ],
     "repository": {
         "type": "git",
         "url": "https://github.com/npmdoc/node-npmdoc-serialport.git"
     },
     "scripts": {
-        "build-ci": "utility2 shReadmeTest build_ci.sh"
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "(set -e; npm install \"kaizhu256/node-utility2#alpha\"; utility2 shDeployHeroku)",
+        "postinstall": "if [ -f npm_scripts.sh ]; then ./npm_scripts.sh postinstall; fi",
+        "start": "(set -e; export PORT=${PORT:-8080}; utility2 start test.js)",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
     },
     "version": "0.0.1"
 }
