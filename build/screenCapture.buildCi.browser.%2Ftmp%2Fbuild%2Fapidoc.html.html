@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="https://github.com/EmergingTechnologyAdvisors/node-serialport#readme"
-
-    >serialport (v4.0.7)</a>
+    <a href="https://github.com/EmergingTechnologyAdvisors/node-serialport#readme">serialport (v4.0.7)</a>
 </h1>
 <h4>Node.js package to access serial ports. Welcome your robotic javascript overlords. Better yet, program them!</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.serialport">module serialport</a><ol>
 
@@ -420,11 +413,11 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function SerialPort(path, options, callback) {
-  if (typeof callback === &#x27;boolean&#x27;) {
-    throw new TypeError(&#x27;`openImmediately` is now called `autoOpen` and is a property of options&#x27;);
+  if (typeof callback === 'boolean') {
+    throw new TypeError('`openImmediately` is now called `autoOpen` and is a property of options');
   }
 
-  if (typeof options === &#x27;function&#x27;) {
+  if (typeof options === 'function') {
     callback = options;
     options = {};
   }
@@ -434,7 +427,7 @@
   stream.Stream.call(this);
 
   if (!path) {
-    throw new TypeError(&#x27;No path specified&#x27;);
+    throw new TypeError('No path specified');
   }
 
   this.path = path;
@@ -442,25 +435,25 @@
   var correctedOptions = correctOptions(options);
   var settings = assign({}, defaultSettings, correctedOptions);
 
-  if (typeof settings.baudRate !== &#x27;number&#x27;) {
-    throw new TypeError(&#x27;Invalid &#x22;baudRate&#x22; must be a number got: &#x27; + settings.baudRate);
+  if (typeof settings.baudRate !== 'number') {
+    throw new TypeError('Invalid "baudRate" must be a number got: ' + settings.baudRate);
   }
 
   if (DATABITS.indexOf(settings.dataBits) === -1) {
-    throw new TypeError(&#x27;Invalid &#x22;databits&#x22;: &#x27; + settings.dataBits);
+    throw new TypeError('Invalid "databits": ' + settings.dataBits);
   }
 
   if (STOPBITS.indexOf(settings.stopBits) === -1) {
-    throw new TypeError(&#x27;Invalid &#x22;stopbits&#x22;: &#x27; + settings.stopbits);
+    throw new TypeError('Invalid "stopbits": ' + settings.stopbits);
   }
 
   if (PARITY.indexOf(settings.parity) === -1) {
-    throw new TypeError(&#x27;Invalid &#x22;parity&#x22;: &#x27; + settings.parity);
+    throw new TypeError('Invalid "parity": ' + settings.parity);
   }
 
   FLOWCONTROLS.forEach(function(control) {
-    if (typeof settings[control] !== &#x27;boolean&#x27;) {
-      throw new TypeError(&#x27;Invalid &#x22;&#x27; + control + &#x27;&#x22; is not boolean&#x27;);
+    if (typeof settings[control] !== 'boolean') {
+      throw new TypeError('Invalid "' + control + '" is not boolean');
     }
   });
 
@@ -472,7 +465,7 @@
   this.opening = false;
   this.closing = false;
 
-  if (process.platform !== &#x27;win32&#x27;) {
+  if (process.platform !== 'win32') {
     this.bufferSize = settings.bufferSize;
     this.readable = true;
     this.reading = false;
@@ -499,12 +492,12 @@
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function listLinux(callback) {
   callback = callback || function(err) {
-    if (err) { this.emit(&#x27;error&#x27;, err) }
+    if (err) { this.emit('error', err) }
   }.bind(this);
   return listUnix(callback);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-port.on(&#x27;open&#x27;, function() {
+port.on('open', function() {
   // open logic
 });
 ```
@@ -629,12 +622,12 @@ Closes an open connection.
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function listLinux(callback) {
   callback = callback || function(err) {
-    if (err) { this.emit(&#x27;error&#x27;, err) }
+    if (err) { this.emit('error', err) }
   }.bind(this);
   return listUnix(callback);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-port.on(&#x27;open&#x27;, function() {
+port.on('open', function() {
   // open logic
 });
 ```
@@ -674,15 +667,15 @@ Constructing a `SerialPort` object will open a port on `nextTick`. You can bind 
  ways.
 
  - The `open` event is always emitted when the port is opened
- - The constructor&#x27;s openCallback is passed to `.<span class="apidocCodeKeywordSpan">open</span>()` when the `autoOpen` option
- hasn&#x27;t been disabled, if you have disabled it the callback is ignored.
+ - The constructor's openCallback is passed to `.<span class="apidocCodeKeywordSpan">open</span>()` when the `autoOpen` option
+ hasn't been disabled, if you have disabled it the callback is ignored.
  - The `.open()` function takes a callback that is called after the port is opened. This can be used if you disabled the `autoOpen
 ` option or have previously closed an open port.
 
 
 ```js
-var SerialPort = require(&#x27;serialport&#x27;);
-var port = new SerialPort(&#x27;/dev/tty-usbserial1&#x27;);
+var SerialPort = require('serialport');
+var port = new SerialPort('/dev/tty-usbserial1');
 ...</pre></li>
     </ul>
 
@@ -726,15 +719,15 @@ var port = new SerialPort(&#x27;/dev/tty-usbserial1&#x27;);
 
 
 ```js
-var SerialPort = require(&#x27;serialport&#x27;);
-var port = new SerialPort(&#x27;/dev/tty-usbserial1&#x27;);
+var SerialPort = require('serialport');
+var port = new SerialPort('/dev/tty-usbserial1');
 
-port.on(&#x27;open&#x27;, function() {
-  port.<span class="apidocCodeKeywordSpan">write</span>(&#x27;main screen turn on&#x27;, function(err) {
+port.on('open', function() {
+  port.<span class="apidocCodeKeywordSpan">write</span>('main screen turn on', function(err) {
     if (err) {
-      return console.log(&#x27;Error on write: &#x27;, err.message);
+      return console.log('Error on write: ', err.message);
     }
-    console.log(&#x27;message written&#x27;);
+    console.log('message written');
   });
 });
 ...</pre></li>
@@ -757,19 +750,19 @@ port.on(&#x27;open&#x27;, function() {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">byteDelimiter = function (delimiter) {
-  if (Object.prototype.toString.call(delimiter) !== &#x27;[object Array]&#x27;) {
+  if (Object.prototype.toString.call(delimiter) !== '[object Array]') {
     delimiter = [ delimiter ];
   }
   var buf = [];
   var nextDelimIndex = 0;
   return function(emitter, buffer) {
-    for (var i = 0; i &#x3c; buffer.length; i++) {
+    for (var i = 0; i &lt; buffer.length; i++) {
       buf[buf.length] = buffer[i];
       if (buf[buf.length - 1] === delimiter[nextDelimIndex]) {
         nextDelimIndex++;
       }
       if (nextDelimIndex === delimiter.length) {
-        emitter.emit(&#x27;data&#x27;, buf);
+        emitter.emit('data', buf);
         buf = [];
         nextDelimIndex = 0;
       }
@@ -781,16 +774,16 @@ Note that the raw parser does not guarantee that all data it receives will come 
 
 To use the byte sequence parser, you must provide a delimiter as an array of bytes:
 ```js
-var SerialPort = require(&#x27;serialport&#x27;);
+var SerialPort = require('serialport');
 
-var port = new SerialPort(&#x27;/dev/tty-usbserial1&#x27;, {
+var port = new SerialPort('/dev/tty-usbserial1', {
   parser: SerialPort.parsers.<span class="apidocCodeKeywordSpan">byteDelimiter</span>([10,13])
 });
 ```
 
 To use the byte length parser, you must provide a delimiter as a length in bytes:
 ```js
-var SerialPort = require(&#x27;serialport&#x27;);
+var SerialPort = require('serialport');
 ...</pre></li>
     </ul>
 
@@ -807,10 +800,10 @@ var SerialPort = require(&#x27;serialport&#x27;);
   var data = new Buffer(0);
   return function(emitter, buffer) {
     data = Buffer.concat([data, buffer]);
-    while (data.length &#x3e;= length) {
+    while (data.length &gt;= length) {
       var out = data.slice(0, length);
       data = data.slice(length);
-      emitter.emit(&#x27;data&#x27;, out);
+      emitter.emit('data', out);
     }
   };
 }</pre></li>
@@ -819,9 +812,9 @@ var SerialPort = require(&#x27;serialport&#x27;);
 
 To use the byte length parser, you must provide a delimiter as a length in bytes:
 ```js
-var SerialPort = require(&#x27;serialport&#x27;);
+var SerialPort = require('serialport');
 
-var port = new SerialPort(&#x27;/dev/tty-usbserial1&#x27;, {
+var port = new SerialPort('/dev/tty-usbserial1', {
   parser: SerialPort.parsers.<span class="apidocCodeKeywordSpan">byteLength</span>(5)
 });
 ```
@@ -829,7 +822,7 @@ var port = new SerialPort(&#x27;/dev/tty-usbserial1&#x27;, {
 You can get updates of new data from the Serial Port as follows:
 
 ```js
-port.on(&#x27;data&#x27;, function (data) {
+port.on('data', function (data) {
 ...</pre></li>
     </ul>
 
@@ -843,7 +836,7 @@ port.on(&#x27;data&#x27;, function (data) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">raw = function (emitter, buffer) {
-  emitter.emit(&#x27;data&#x27;, buffer);
+  emitter.emit('data', buffer);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -858,10 +851,10 @@ port.on(&#x27;data&#x27;, function (data) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">readline = function (delimiter, encoding) {
-  if (typeof delimiter === &#x27;undefined&#x27; || delimiter === null) { delimiter = &#x27;\r&#x27; }
-  if (typeof encoding === &#x27;undefined&#x27; || encoding === null) { encoding = &#x27;utf8&#x27; }
+  if (typeof delimiter === 'undefined' || delimiter === null) { delimiter = '\r' }
+  if (typeof encoding === 'undefined' || encoding === null) { encoding = 'utf8' }
   // Delimiter buffer saved in closure
-  var data = &#x27;&#x27;;
+  var data = '';
   return function(emitter, buffer) {
     // Collect data
     data += buffer.toString(encoding);
@@ -869,7 +862,7 @@ port.on(&#x27;data&#x27;, function (data) {
     var parts = data.split(delimiter);
     data = parts.pop();
     parts.forEach(function(part) {
-      emitter.emit(&#x27;data&#x27;, part);
+      emitter.emit('data', part);
     });
   };
 }</pre></li>
@@ -878,17 +871,17 @@ port.on(&#x27;data&#x27;, function (data) {
 To use the readline parser, you must provide a delimiter as such:
 
 ```js
-var SerialPort = require(&#x27;serialport&#x27;);
+var SerialPort = require('serialport');
 
-var port = new SerialPort(&#x27;/dev/tty-usbserial1&#x27;, {
-  parser: SerialPort.parsers.<span class="apidocCodeKeywordSpan">readline</span>(&#x27;\n&#x27;)
+var port = new SerialPort('/dev/tty-usbserial1', {
+  parser: SerialPort.parsers.<span class="apidocCodeKeywordSpan">readline</span>('\n')
 });
 ```
 
-To use the raw parser don&#x27;t specify any parser, however if you really want to you can:
+To use the raw parser don't specify any parser, however if you really want to you can:
 
 ```js
-var SerialPort = require(&#x27;serialport&#x27;);
+var SerialPort = require('serialport');
 ...</pre></li>
     </ul>
 
@@ -907,11 +900,11 @@ var SerialPort = require(&#x27;serialport&#x27;);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function SerialPort(path, options, callback) {
-  if (typeof callback === &#x27;boolean&#x27;) {
-    throw new TypeError(&#x27;`openImmediately` is now called `autoOpen` and is a property of options&#x27;);
+  if (typeof callback === 'boolean') {
+    throw new TypeError('`openImmediately` is now called `autoOpen` and is a property of options');
   }
 
-  if (typeof options === &#x27;function&#x27;) {
+  if (typeof options === 'function') {
     callback = options;
     options = {};
   }
@@ -921,7 +914,7 @@ var SerialPort = require(&#x27;serialport&#x27;);
   stream.Stream.call(this);
 
   if (!path) {
-    throw new TypeError(&#x27;No path specified&#x27;);
+    throw new TypeError('No path specified');
   }
 
   this.path = path;
@@ -929,25 +922,25 @@ var SerialPort = require(&#x27;serialport&#x27;);
   var correctedOptions = correctOptions(options);
   var settings = assign({}, defaultSettings, correctedOptions);
 
-  if (typeof settings.baudRate !== &#x27;number&#x27;) {
-    throw new TypeError(&#x27;Invalid &#x22;baudRate&#x22; must be a number got: &#x27; + settings.baudRate);
+  if (typeof settings.baudRate !== 'number') {
+    throw new TypeError('Invalid "baudRate" must be a number got: ' + settings.baudRate);
   }
 
   if (DATABITS.indexOf(settings.dataBits) === -1) {
-    throw new TypeError(&#x27;Invalid &#x22;databits&#x22;: &#x27; + settings.dataBits);
+    throw new TypeError('Invalid "databits": ' + settings.dataBits);
   }
 
   if (STOPBITS.indexOf(settings.stopBits) === -1) {
-    throw new TypeError(&#x27;Invalid &#x22;stopbits&#x22;: &#x27; + settings.stopbits);
+    throw new TypeError('Invalid "stopbits": ' + settings.stopbits);
   }
 
   if (PARITY.indexOf(settings.parity) === -1) {
-    throw new TypeError(&#x27;Invalid &#x22;parity&#x22;: &#x27; + settings.parity);
+    throw new TypeError('Invalid "parity": ' + settings.parity);
   }
 
   FLOWCONTROLS.forEach(function(control) {
-    if (typeof settings[control] !== &#x27;boolean&#x27;) {
-      throw new TypeError(&#x27;Invalid &#x22;&#x27; + control + &#x27;&#x22; is not boolean&#x27;);
+    if (typeof settings[control] !== 'boolean') {
+      throw new TypeError('Invalid "' + control + '" is not boolean');
     }
   });
 
@@ -959,7 +952,7 @@ var SerialPort = require(&#x27;serialport&#x27;);
   this.opening = false;
   this.closing = false;
 
-  if (process.platform !== &#x27;win32&#x27;) {
+  if (process.platform !== 'win32') {
     this.bufferSize = settings.bufferSize;
     this.readable = true;
     this.reading = false;
@@ -986,12 +979,12 @@ var SerialPort = require(&#x27;serialport&#x27;);
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function listLinux(callback) {
   callback = callback || function(err) {
-    if (err) { this.emit(&#x27;error&#x27;, err) }
+    if (err) { this.emit('error', err) }
   }.bind(this);
   return listUnix(callback);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-port.on(&#x27;open&#x27;, function() {
+port.on('open', function() {
   // open logic
 });
 ```
@@ -1044,7 +1037,7 @@ Retrieves a list of available serial ports with metadata.
     <ul>
     <li>description and source-code<pre class="apidocCodePre">_disconnected = function (err) {
   this.paused = true;
-  this.emit(&#x27;disconnect&#x27;, err);
+  this.emit('disconnect', err);
   if (this.closing) {
     return;
   }
@@ -1054,7 +1047,7 @@ Retrieves a list of available serial ports with metadata.
   }
 
   this.closing = true;
-  if (process.platform !== &#x27;win32&#x27;) {
+  if (process.platform !== 'win32') {
     this.readable = false;
     this.serialPoller.close();
   }
@@ -1062,10 +1055,10 @@ Retrieves a list of available serial ports with metadata.
   SerialPortBinding.close(this.fd, function(err) {
     this.closing = false;
     if (err) {
-      debug(&#x27;Disconnect close completed with error: &#x27;, err);
+      debug('Disconnect close completed with error: ', err);
     }
     this.fd = null;
-    this.emit(&#x27;close&#x27;);
+    this.emit('close');
   }.bind(this));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -1099,7 +1092,7 @@ Retrieves a list of available serial ports with metadata.
   if (callback) {
     callback.call(this, error);
   } else {
-    this.emit(&#x27;error&#x27;, error);
+    this.emit('error', error);
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -1121,14 +1114,14 @@ Retrieves a list of available serial ports with metadata.
 
   this.reading = true;
 
-  if (!this.pool || this.pool.length - this.pool.used &#x3c; kMinPoolSpace) {
-    // discard the old pool. Can&#x27;t add to the free list because
+  if (!this.pool || this.pool.length - this.pool.used &lt; kMinPoolSpace) {
+    // discard the old pool. Can't add to the free list because
     // users might have references to slices on it.
     this.pool = new Buffer(kPoolSize);
     this.pool.used = 0;
   }
 
-  // Grab another reference to the pool in the case that while we&#x27;re in the
+  // Grab another reference to the pool in the case that while we're in the
   // thread pool another read() finishes up the pool, and allocates a new
   // one.
   var toRead = Math.min(this.pool.length - this.pool.used, ~~this.bufferSize);
@@ -1137,23 +1130,23 @@ Retrieves a list of available serial ports with metadata.
   var _afterRead = function(err, bytesRead, readPool, bytesRequested) {
     this.reading = false;
     if (err) {
-      if (err.code &#x26;&#x26; err.code === &#x27;EAGAIN&#x27;) {
+      if (err.code &amp;&amp; err.code === 'EAGAIN') {
         if (this.isOpen()) {
           this.serialPoller.start();
         }
-      // handle edge case were mac/unix doesn&#x27;t clearly know the error.
-      } else if (err.code &#x26;&#x26; (err.code === &#x27;EBADF&#x27; || err.code === &#x27;ENXIO&#x27; || (err.errno === -1 || err.code === &#x27;UNKNOWN&#x27;))) {
+      // handle edge case were mac/unix doesn't clearly know the error.
+      } else if (err.code &amp;&amp; (err.code === 'EBADF' || err.code === 'ENXIO' || (err.errno === -1 || err.code === 'UNKNOWN'))) {
         this._disconnected(err);
       } else {
         this.fd = null;
         this.readable = false;
-        this.emit(&#x27;error&#x27;, err);
+        this.emit('error', err);
       }
       return;
     }
 
     // Since we will often not read the number of bytes requested,
-    // let&#x27;s mark the ones we didn&#x27;t need as available again.
+    // let's mark the ones we didn't need as available again.
     this.pool.used -= bytesRequested - bytesRead;
 
     if (bytesRead === 0) {
@@ -1205,31 +1198,31 @@ Retrieves a list of available serial ports with metadata.
   this.paused = true;
 
   if (this.closing) {
-    debug(&#x27;close attempted, but port is already closing&#x27;);
-    return this._error(new Error(&#x27;Port is not open&#x27;), callback);
+    debug('close attempted, but port is already closing');
+    return this._error(new Error('Port is not open'), callback);
   }
 
   if (!this.isOpen()) {
-    debug(&#x27;close attempted, but port is not open&#x27;);
-    return this._error(new Error(&#x27;Port is not open&#x27;), callback);
+    debug('close attempted, but port is not open');
+    return this._error(new Error('Port is not open'), callback);
   }
 
   this.closing = true;
 
   // Stop polling before closing the port.
-  if (process.platform !== &#x27;win32&#x27;) {
+  if (process.platform !== 'win32') {
     this.readable = false;
     this.serialPoller.close();
   }
   SerialPortBinding.close(this.fd, function(err) {
     this.closing = false;
     if (err) {
-      debug(&#x27;SerialPortBinding.close had an error&#x27;, err);
+      debug('SerialPortBinding.close had an error', err);
       return this._error(err, callback);
     }
 
     this.fd = null;
-    this.emit(&#x27;close&#x27;);
+    this.emit('close');
     if (callback) { callback.call(this, null) }
   }.bind(this));
 }</pre></li>
@@ -1247,13 +1240,13 @@ Retrieves a list of available serial ports with metadata.
     <ul>
     <li>description and source-code<pre class="apidocCodePre">drain = function (callback) {
   if (!this.isOpen()) {
-    debug(&#x27;drain attempted, but port is not open&#x27;);
-    return this._error(new Error(&#x27;Port is not open&#x27;), callback);
+    debug('drain attempted, but port is not open');
+    return this._error(new Error('Port is not open'), callback);
   }
 
   SerialPortBinding.drain(this.fd, function(err) {
     if (err) {
-      debug(&#x27;SerialPortBinding.drain had an error&#x27;, err);
+      debug('SerialPortBinding.drain had an error', err);
       return this._error(err, callback);
     }
     if (callback) { callback.call(this, null) }
@@ -1289,13 +1282,13 @@ Closes an open connection.
     <ul>
     <li>description and source-code<pre class="apidocCodePre">flush = function (callback) {
   if (!this.isOpen()) {
-    debug(&#x27;flush attempted, but port is not open&#x27;);
-    return this._error(new Error(&#x27;Port is not open&#x27;), callback);
+    debug('flush attempted, but port is not open');
+    return this._error(new Error('Port is not open'), callback);
   }
 
   SerialPortBinding.flush(this.fd, function(err, result) {
     if (err) {
-      debug(&#x27;SerialPortBinding.flush had an error&#x27;, err);
+      debug('SerialPortBinding.flush had an error', err);
       return this._error(err, callback);
     }
     if (callback) { callback.call(this, null, result) }
@@ -1314,7 +1307,7 @@ Closes an open connection.
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">isOpen = function () {
-  return this.fd !== null &#x26;&#x26; !this.closing;
+  return this.fd !== null &amp;&amp; !this.closing;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
@@ -1345,11 +1338,11 @@ Writes data to the given serial port.
     <ul>
     <li>description and source-code<pre class="apidocCodePre">open = function (callback) {
   if (this.isOpen()) {
-    return this._error(new Error(&#x27;Port is already open&#x27;), callback);
+    return this._error(new Error('Port is already open'), callback);
   }
 
   if (this.opening) {
-    return this._error(new Error(&#x27;Port is opening&#x27;), callback);
+    return this._error(new Error('Port is opening'), callback);
   }
 
   this.paused = true;
@@ -1360,13 +1353,13 @@ Writes data to the given serial port.
   SerialPortBinding.open(this.path, this.options, function(err, fd) {
     this.opening = false;
     if (err) {
-      debug(&#x27;SerialPortBinding.open had an error&#x27;, err);
+      debug('SerialPortBinding.open had an error', err);
       return this._error(err, callback);
     }
     this.fd = fd;
     this.paused = false;
 
-    if (process.platform !== &#x27;win32&#x27;) {
+    if (process.platform !== 'win32') {
       this.serialPoller = new SerialPortBinding.SerialportPoller(this.fd, function(err) {
         if (!err) {
           this._read();
@@ -1377,7 +1370,7 @@ Writes data to the given serial port.
       this.serialPoller.start();
     }
 
-    this.emit(&#x27;open&#x27;);
+    this.emit('open');
     if (callback) { callback.call(this, null) }
   }.bind(this));
 }</pre></li>
@@ -1391,15 +1384,15 @@ Constructing a `SerialPort` object will open a port on `nextTick`. You can bind 
  ways.
 
  - The `open` event is always emitted when the port is opened
- - The constructor&#x27;s openCallback is passed to `.<span class="apidocCodeKeywordSpan">open</span>()` when the `autoOpen` option
- hasn&#x27;t been disabled, if you have disabled it the callback is ignored.
+ - The constructor's openCallback is passed to `.<span class="apidocCodeKeywordSpan">open</span>()` when the `autoOpen` option
+ hasn't been disabled, if you have disabled it the callback is ignored.
  - The `.open()` function takes a callback that is called after the port is opened. This can be used if you disabled the `autoOpen
 ` option or have previously closed an open port.
 
 
 ```js
-var SerialPort = require(&#x27;serialport&#x27;);
-var port = new SerialPort(&#x27;/dev/tty-usbserial1&#x27;);
+var SerialPort = require('serialport');
+var port = new SerialPort('/dev/tty-usbserial1');
 ...</pre></li>
     </ul>
 
@@ -1457,18 +1450,18 @@ var port = new SerialPort(&#x27;/dev/tty-usbserial1&#x27;);
     <ul>
     <li>description and source-code<pre class="apidocCodePre">set = function (options, callback) {
   if (!this.isOpen()) {
-    debug(&#x27;set attempted, but port is not open&#x27;);
-    return this._error(new Error(&#x27;Port is not open&#x27;), callback);
+    debug('set attempted, but port is not open');
+    return this._error(new Error('Port is not open'), callback);
   }
 
   options = options || {};
-  if (!callback &#x26;&#x26; typeof options === &#x27;function&#x27;) {
+  if (!callback &amp;&amp; typeof options === 'function') {
     callback = options;
     options = {};
   }
 
   var settings = {};
-  for (var i = SET_OPTIONS.length - 1; i &#x3e;= 0; i--) {
+  for (var i = SET_OPTIONS.length - 1; i &gt;= 0; i--) {
     var flag = SET_OPTIONS[i];
     if (options[flag] !== undefined) {
       settings[flag] = options[flag];
@@ -1479,7 +1472,7 @@ var port = new SerialPort(&#x27;/dev/tty-usbserial1&#x27;);
 
   SerialPortBinding.set(this.fd, settings, function(err) {
     if (err) {
-      debug(&#x27;SerialPortBinding.set had an error&#x27;, err);
+      debug('SerialPortBinding.set had an error', err);
       return this._error(err, callback);
     }
     if (callback) { callback.call(this, null) }
@@ -1499,8 +1492,8 @@ var port = new SerialPort(&#x27;/dev/tty-usbserial1&#x27;);
     <ul>
     <li>description and source-code<pre class="apidocCodePre">update = function (options, callback) {
   if (!this.isOpen()) {
-    debug(&#x27;update attempted, but port is not open&#x27;);
-    return this._error(new Error(&#x27;Port is not open&#x27;), callback);
+    debug('update attempted, but port is not open');
+    return this._error(new Error('Port is not open'), callback);
   }
 
   var correctedOptions = correctOptions(options);
@@ -1528,18 +1521,18 @@ var port = new SerialPort(&#x27;/dev/tty-usbserial1&#x27;);
     <ul>
     <li>description and source-code<pre class="apidocCodePre">write = function (buffer, callback) {
   if (!this.isOpen()) {
-    debug(&#x27;write attempted, but port is not open&#x27;);
-    return this._error(new Error(&#x27;Port is not open&#x27;), callback);
+    debug('write attempted, but port is not open');
+    return this._error(new Error('Port is not open'), callback);
   }
 
   if (!Buffer.isBuffer(buffer)) {
     buffer = new Buffer(buffer);
   }
 
-  debug(&#x27;write &#x27; + buffer.length + &#x27; bytes of data&#x27;);
+  debug('write ' + buffer.length + ' bytes of data');
   SerialPortBinding.write(this.fd, buffer, function(err) {
     if (err) {
-      debug(&#x27;SerialPortBinding.write had an error&#x27;, err);
+      debug('SerialPortBinding.write had an error', err);
       return this._error(err, callback);
     }
     if (callback) { callback.call(this, null) }
@@ -1549,15 +1542,15 @@ var port = new SerialPort(&#x27;/dev/tty-usbserial1&#x27;);
 
 
 ```js
-var SerialPort = require(&#x27;serialport&#x27;);
-var port = new SerialPort(&#x27;/dev/tty-usbserial1&#x27;);
+var SerialPort = require('serialport');
+var port = new SerialPort('/dev/tty-usbserial1');
 
-port.on(&#x27;open&#x27;, function() {
-  port.<span class="apidocCodeKeywordSpan">write</span>(&#x27;main screen turn on&#x27;, function(err) {
+port.on('open', function() {
+  port.<span class="apidocCodeKeywordSpan">write</span>('main screen turn on', function(err) {
     if (err) {
-      return console.log(&#x27;Error on write: &#x27;, err.message);
+      return console.log('Error on write: ', err.message);
     }
-    console.log(&#x27;message written&#x27;);
+    console.log('message written');
   });
 });
 ...</pre></li>
@@ -1572,3 +1565,4 @@ port.on(&#x27;open&#x27;, function() {
     ]
 </div>
 </div>
+</body></html>
